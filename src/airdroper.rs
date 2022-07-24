@@ -5,7 +5,7 @@ use solana_sdk::{
   signature::{Keypair, Signature},
 };
 use solana_client::{
-  rpc_client::RpcClient,
+  nonblocking::rpc_client::RpcClient,
   client_error::Result as ClientResult,
 };
 use borsh::BorshDeserialize;
@@ -98,9 +98,9 @@ impl Airdroper {
         &payer,
         to_account,
         lamports,
-        rpc_client.get_latest_blockhash()?
+        rpc_client.get_latest_blockhash().await?
       )
-    )
+    ).await
   } 
 }
 
