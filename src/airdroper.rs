@@ -50,6 +50,8 @@ impl Airdroper {
   }
   
   pub async fn start(&mut self) {
+    println!("Runing...");
+
     let airdrop_amount = self.airdrop_amount;
     let rpc_client = Arc::clone(&self.rpc_client);
     let payer = Arc::clone(&self.payer);
