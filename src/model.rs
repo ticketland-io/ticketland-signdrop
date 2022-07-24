@@ -1,7 +1,9 @@
 use borsh::{BorshSerialize, BorshDeserialize};
+use solana_sdk::{
+  pubkey::Pubkey,
+};
 
 #[derive(BorshSerialize, BorshDeserialize, PartialEq, Debug)]
-pub struct AirdropData {
-  pub sol_address: String,
-  pub age: u8,
+pub struct NewUser {
+  pub sol_address: Pubkey,
 }

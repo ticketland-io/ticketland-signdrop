@@ -10,3 +10,4 @@ amqp-helpers = { git = "https://github.com/ticketland-io/amqp-helpers" }
 borsh = "0.9.3"
 solana-sdk = "1.11.4"
 solana-client = "1.11.4"
+lapin = "2.1.1"
