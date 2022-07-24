@@ -61,8 +61,9 @@ impl Airdroper {
       async move {  
         if let Ok(delivery) = delivery {
           let user = NewUser::try_from_slice(&delivery.data).unwrap();
-          
-          match Self::transfer_sol(rpc_client, payer, &user.sol_address, airdrop_amount).await {
+          let sol_address = user.sol_address.as_str().try_into().unwrap();
+
+          match Self::transfer_sol(rpc_client, payer, &sol_address, airdrop_amount).await {
             Ok(tx_hash) => {
               println!("Airdrop success {} for {} SOL txHash {}", user.sol_address, airdrop_amount, tx_hash);
   

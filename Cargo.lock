@@ -4140,7 +4140,7 @@ dependencies = [
 
 [[package]]
 name = "ticketland-signdrop"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "amqp-helpers",
  "borsh",
