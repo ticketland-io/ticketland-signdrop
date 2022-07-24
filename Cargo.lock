@@ -4147,6 +4147,7 @@ dependencies = [
  "lapin",
  "solana-client",
  "solana-sdk",
+ "tokio",
 ]
 
 [[package]]

@@ -29,12 +29,12 @@ pub struct Airdroper {
 impl Airdroper {
   pub async fn new(
     solana_rpc: String,
-    payer_key: String,
+    fund_priv_key: String,
     rabbitmq_uri: String,
     airdrop_amount: u64,
   ) -> Self {
     let rpc_client = Arc::new(RpcClient::new(solana_rpc));
-    let payer = Arc::new(Keypair::from_base58_string(&payer_key));
+    let payer = Arc::new(Keypair::from_base58_string(&fund_priv_key));
     let retry_consumer = RetryConsumer::new(
       &rabbitmq_uri,
       "new_user",
