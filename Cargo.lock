@@ -145,8 +145,8 @@ dependencies = [
 
 [[package]]
 name = "amqp-helpers"
-version = "0.1.4"
-source = "git+https://github.com/ticketland-io/amqp-helpers#7d57a6ecdc9cfc4cbab97bf091320151ea21eb26"
+version = "0.1.5"
+source = "git+https://github.com/ticketland-io/amqp-helpers#2bbf2114f6e745e7bbf50e235db443fd8a13c0b9"
 dependencies = [
  "futures-lite",
  "lapin",

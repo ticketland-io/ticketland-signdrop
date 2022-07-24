@@ -37,8 +37,8 @@ impl Airdroper {
     let payer = Arc::new(Keypair::from_base58_string(&fund_priv_key));
     let retry_consumer = RetryConsumer::new(
       &rabbitmq_uri,
-      "new_user",
-      "new_user",
+      "user",
+      "user",
     ).await;
 
     Self {
