@@ -1,4 +1,5 @@
 use std::sync::Arc;
+use eyre::Result;
 use solana_sdk::{
   system_transaction,
   pubkey::Pubkey,
@@ -10,7 +11,7 @@ use solana_client::{
 };
 use borsh::BorshDeserialize;
 use lapin::{
-  Result,
+  Result as LapinResult,
   message::{Delivery},
   options::{BasicAckOptions, BasicNackOptions},
 };
@@ -49,14 +50,14 @@ impl Airdroper {
     }
   }
   
-  pub async fn start(&mut self) {
+  pub async fn start(&mut self) -> Result<()> {
     println!("Running...");
 
     let airdrop_amount = self.airdrop_amount;
     let rpc_client = Arc::clone(&self.rpc_client);
     let payer = Arc::clone(&self.payer);
 
-    self.retry_consumer.consume(Box::new(move |delivery: Result<Delivery>, _| {
+    self.retry_consumer.consume(Box::new(move |delivery: LapinResult<Delivery>, _| {
       let rpc_client = Arc::clone(&rpc_client);
       let payer = Arc::clone(&payer);
 
@@ -85,7 +86,9 @@ impl Airdroper {
           }
         }
       }
-    })).await;
+    })).await?;
+
+    Ok(())
   }
 
   pub async fn transfer_sol(

@@ -25,5 +25,5 @@ async fn main() {
     config.airdrop_amount,
 	).await;
 
-	aidroper.start().await;
+	aidroper.start().await.unwrap();
 }

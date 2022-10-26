@@ -1,15 +1,16 @@
 [package]
 name = "ticketland-signdrop"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 license = "BUSL-1.1"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-amqp-helpers = { git = "https://github.com/ticketland-io/amqp-helpers", version = "0.1.5" }
+amqp-helpers = { git = "https://github.com/ticketland-io/amqp-helpers", version = "0.1.6" }
 borsh = "0.9.3"
 dotenv = "0.15"
+eyre = "0.6.8"
 solana-sdk = "1.11.4"
 solana-client = "1.11.4"
 lapin = "2.1.1"
