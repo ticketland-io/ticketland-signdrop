@@ -40,7 +40,8 @@ impl Airdroper {
       &rabbitmq_uri,
       "user",
       "user",
-    ).await;
+      1,
+    ).await.expect("crete consumer");
 
     Self {
       rpc_client,
